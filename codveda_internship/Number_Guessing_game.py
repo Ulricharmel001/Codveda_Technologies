@@ -2,10 +2,7 @@
 Use the random module to generate a random number.
 Give the user multiple attempts to guess the number.
 Provide appropriate feedback (e.g.,
-
-"Too high" or "Too
-
-low").
+"Too high" or "Too low").
 Exit the game if the user guesses correctly or after a
 maximum number of attempts."""
 
@@ -54,25 +51,25 @@ while attempts < max_attempts:
     except ValueError:
         print("Incorrect Value, enter a number from  1 - 10")
         continue
+    print(f"Attempt {attempts} of {max_attempts}.")
+    print(f"Remaining attempts: {remaining_attempts}")
 
-    print("Number of Attempts: ", attempts)
-    print('remaining attempt(s) :', remaining_attempts )
     if user_guess == secret_number:
         print("user Guess:", user_guess, " ", "target was number :", secret_number)
-        print("Congratulations, you guessed the number")
+        print(f"Congratulations! You guessed the number {secret_number} correctly!")
         print("Game End ")
         break
     elif user_guess < secret_number and remaining_attempts > 0:
         print("user Guess:", user_guess, " ", "target number :", secret_number)
-        print("Too Low, Try again!")
+        print("Your guess is too low. Try again!")
         continue
     elif user_guess > secret_number and remaining_attempts > 0:
         print("user Guess:", user_guess, " ", "target number :", secret_number)
-        print("Too High, Try again!")
+        print("Your guess is too high. Try again!")
         continue
     elif remaining_attempts == 0:
-        print("You have, you have complete all your try ")
-        print("Game Over")
+        print("You’ve used all your attempts. Game over!")
+        print(f"The number was {secret_number}. Better luck next time!")
         break
 
 
